@@ -7,4 +7,15 @@
  
  个人理解：在运行test的时候只需要underwater-dir的路径正确，其他三个文件夹是不需要的，运行train的时候才需要四个文件夹。
 
- 
+ 2.运行train_cycle.py
+ （1）修改下预训练权重路径：
+    parser.add_argument('--weights_A', type=str, default='model/model_A.pt', help='initial weights path')
+    parser.add_argument('--weights_d', type=str, default='model/model_d.pt', help='initial weights path')
+    parser.add_argument('--weights_t', type=str, default='model/model_t.pt', help='initial weights path')
+    parser.add_argument('--weights_b', type=str, default='model/model_b.pt', help='initial weights path')
+
+（2）使用自己的数据集重新训练的话，需要有四个数据集
+疑问：如果要使用underwater-dir-refer的话，不是还要paired的数据集么？怎么还能叫做无监督呢？
+
+(3)训练后保存的模型在哪？
+答：在runs/train/exp1/weights文件夹下，这个文件夹还保存了中间过程的训练图
